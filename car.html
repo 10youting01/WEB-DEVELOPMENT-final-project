@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>賽車小遊戲</title>
+
+    <link href="style.css" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=BioRhyme" rel="stylesheet">
+                
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="car.js"></script>
+
+</head>
+
+<body id="car_body">
+
+   <!--  <div class="wrapper">
+        <div class="box">
+            <div class="front">
+                <h2>Web Design Agency</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis ratione animi pariatur consequuntur officiis beatae voluptates veritatis praesentium quidem, aliquam sequi repellendus dolore a. Voluptatem.</p><a class="btn animate" href="#">Contact Us</a>
+            </div>
+            <div class="back">
+                <a class="animate close" href="#">&times;</a>
+                <div class="container">
+                    <form id="choose_car">
+                        <div class="boxes">
+                          <input type="checkbox" class="check" id="box-1" data-index="0">
+                          <label class="label" for="box-1">Sustainable typewriter cronut</label>
+
+                          <input type="checkbox" class="check" id="box-2" data-index="0">
+                          <label class="label" for="box-2">Gentrify pickled kale chips </label>
+
+                          <input type="checkbox" class="check" id="box-3" data-index="0">
+                          <label class="label" for="box-3">Gastropub butcher</label>
+                        </div>
+                        <input id="submit_btn" type="submit" value="Submit" onclick="ChooseCar()">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('.animate').click(function(){
+          $('.box').toggleClass('animated');
+          return false;
+        });
+       });
+    </script> -->
+
+<!-- Game Code Start Here -->
+
+    <div id="car_empty"></div>
+
+    <div id="car_help">
+        <span>Use<br>
+            <div id="car_highlight"></div><strong>Right, Left, Up & Down arrow keys</strong>
+            <br>to control.
+        </span>
+    </div>
+
+    <div id="car_score_div">
+        Score: <span id="car_score">0</span><br>
+        <!-- High Score: <span id="high_score">0</span> -->
+    </div>
+
+    <div id="car_ranker">
+        <table>
+            <tr><th colspan="2">排行榜</th></tr>
+            <tr><td>No.1&nbsp;</td><td><span id=no1>0<span></td></tr>
+            <tr><td>No.2&nbsp;</td><td><span id=no2>0<span></td></tr>
+            <tr><td>No.3&nbsp;</td><td><span id=no3>0<span></td></tr>
+            <tr><td>No.4&nbsp;</td><td><span id=no4>0<span></td></tr>
+            <tr><td>No.5&nbsp;</td><td><span id=no5>0<span></td></tr>
+        </table>
+    </div>
+
+    <!-- container為遊戲主畫面 -->
+    <div id="car_container">
+
+        <div id="car_line_1" class="car_line"></div>
+        <div id="car_line_2" class="car_line"></div>
+        <div id="car_line_3" class="car_line"></div>
+
+        <img id="car_car" class="car_car">
+        <img id="car_car_1" class="car_car">
+        <img id="car_car_2" class="car_car">
+        <img id="car_car_3" class="car_car">
+        <img id="car_car_4" class="car_car">
+        <img id="car_car_5" class="car_car">
+
+        <div id="car_restart_div">
+            <button id="car_restart">
+                <img id="car_ending_car" src="./MainPageImg/ending_car.gif" width="220" height="220" />
+                <span id="car_restart_word">
+                    <span class="car_text-wrapper">
+                        <span class="car_letters">Click <span id="car_mario">Mario</span> to Reatart</span>
+                    </span>
+                </span>
+            </button>
+        </div>
+
+    </div>
+    <div id="car_empty"></div>
+
+</body>
+
+</html>

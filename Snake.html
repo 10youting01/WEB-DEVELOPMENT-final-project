@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <title>SnakeGame</title>
+</head>
+
+<body class="SnakeBody">
+    <span id="chooseLevel">Snake</span>
+    <canvas id="game" width="400" height="400"></canvas>
+    <img id="howToPlay" src="./MainPageImg/資產 60.png" alt=""
+        onclick="how('Press &uarr; &darr; &larr; &rarr; to control your snake!\n' + 'Get 25 to win!')">
+    <span id="howTo"></span>
+
+    <div id="snakeForm">
+        <p id="formHead">Choose a level and snake!</p>
+        <form name="snakeForm"  id = "snakeFormInput">
+            <fieldset class="snakeLevelField">
+                <legend>Level:</legend>
+                <input type="radio" name="snakeLevel" value="8" id="sLevelId" onclick="speedLevel();" required>Level 1
+                <input type="radio" name="snakeLevel" value="10"  onclick="speedLevel();" required>Level 2
+                <input type="radio" name="snakeLevel" value="12" onclick="speedLevel();" required>Level 3
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('game');
+        const ctx = canvas.getContext('2d');
+
+        class SnakePart {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+        }
+
+        let speed = 8;
+
+        let tileCount = 20;
+        let tileSize = canvas.width / tileCount - 2;
+        let headX = 10;
+        let headY = 10;
+        const snakePart = [];
+        let tailLen = 0;
+
+        let appleX = 5;
+        let appleY = 5;
+
+        let xV = 0;
+        let yV = 0;
+
+        let score = 0;
+
+        function startGame() {
+            snakePosition();
+            let lose = isOver();
+            if (lose) {
+                document.body.addEventListener('keydown', playAgain);
+                return;
+            }
+            clearScreen();
+
+            checkColli();
+            let win = isWin();
+            if (win) {
+                return;
+            }
+            drawApple();
+            drawSnake();
+            drawScore();
+
+            setSpeed();
+
+            setTimeout(startGame, 1000 / speed);
+        }
+
+        function setSpeed() {
+            if (score == 5) {
+                speed = 10;
+            }
+        }
+
+        function isWin() {
+            let win = false;
+            if (score == 25) {
+                win = true;
+            }
+            if (win) {
+                ctx.fillStyle = "white";
+                ctx.font = "50px Algerian";
+                ctx.fillText("YOU WIN!", canvas.width / 4, canvas.height / 2)
+            }
+            return win;
+        }
+
+        function isOver() {
+            let Over = false;
+            if (headX < 0 || headX == 20 || headY < 0 || headY == 20) {
+                Over = true;
+            }
+            for (let i = 0; i < snakePart.length; i++) {
+                if (headX == snakePart[i].x && headY == snakePart[i].y) {
+                    Over = true;
+                }
+            }
+            if (Over) {
+                clearScreen()
+                ctx.fillStyle = "white";
+                ctx.font = "50px Algerian";
+                ctx.fillText("Game Over!", canvas.width / 6.2, canvas.height / 2.5);
+                ctx.font = "25px Algerian";
+                ctx.fillText("Press Enter", canvas.width / 3.5, canvas.height / 2.5 + 60);
+            }
+            return Over;
+        }
+
+        function clearScreen() {
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, 400, 400);
+        }
+        //劃出蛇的頭身
+        function drawSnake() {
+            ctx.fillStyle = "green";
+            for (let i = 0; i < snakePart.length; i++) {
+                let part = snakePart[i];
+                ctx.fillRect(part.x * tileCount, part.y * tileCount, tileSize, tileSize);
+            }
+
+            snakePart.push(new SnakePart(headX, headY));
+            if (snakePart.length > tailLen) {
+                snakePart.shift();
+            }
+            //身體橘色
+            ctx.fillStyle = 'orange';
+            ctx.fillRect(headX * tileCount, headY * tileCount, tileSize, tileSize);
+
+        }
+        //畫蛇食
+        function drawApple() {
+            ctx.fillStyle = "red";
+            ctx.fillRect(appleX * tileCount, appleY * tileCount, tileSize, tileSize);
+        }
+        //畫出分數
+        function drawScore() {
+            ctx.fillStyle = "white";
+            ctx.font = "15px Algerian";
+            ctx.fillText("Score: " + score, canvas.width - 75, 18);
+        }
+        //確認是否吃到蘋果
+        function checkColli() {
+            if (appleX === headX && appleY === headY) {
+                appleX = Math.floor(Math.random() * tileCount);
+                appleY = Math.floor(Math.random() * tileCount);
+                tailLen++;
+                score++;
+                if (score > 5 && score % 2 == 0) {
+                    speed++;
+                }
+            }
+        }
+        //蛇的位置
+        function snakePosition() {
+            headX = headX + xV;
+            headY = headY + yV;
+        }
+        //偵測是否按下按鍵
+        document.body.addEventListener('keydown', keyDown);
+
+        function keyDown(event) {
+            //go up
+            if (event.keyCode == 38) {
+                if (yV == 1)
+                    return;
+                yV = -1;
+                xV = 0;
+            }
+            //go down
+            if (event.keyCode == 40) {
+                if (yV == -1)
+                    return;
+                yV = 1;
+                xV = 0;
+            }
+            //go left
+            if (event.keyCode == 37) {
+                if (xV == 1)
+                    return;
+                yV = 0;
+                xV = -1;
+            }
+            //go right
+            if (event.keyCode == 39) {
+                if (xV == -1)
+                    return;
+                yV = 0;
+                xV = 1;
+            }
+        }
+        //再玩一次
+        function playAgain(event) {
+            if (event.keyCode == 32) {
+                location.reload();
+            }
+        }
+
+        startGame();
+
+        let x = 0;
+        //js使用 點擊出現遊戲提示
+        function how(w) {
+            if (x == 0) {
+                document.getElementById("howTo").innerText = w;
+                document.getElementById("howTo").setAttribute("class", 'wordType');
+                x = 1;
+            }
+            else {
+                document.getElementById("howTo").innerText = "";
+                x = 0;
+            }
+        }
+        //jq使用 標題轉換小趣味
+        $(document.getElementById("chooseLevel")).hover(
+            function () {
+                document.getElementById("chooseLevel").innerText = 'Hungry!';
+            },
+            function () {
+                document.getElementById("chooseLevel").innerText = 'Snake';
+            }
+        );
+        //js使用 點擊選擇遊戲難度(速度)
+        function speedLevel(){
+            var selected = document.forms["snakeForm"].elements["snakeLevel"];
+            if (selected[0].checked){speed = 8;}//初設速度
+            else if(selected[1].checked){speed = 10;}
+            else {speed = 12;}
+        }
+    </script>
+</body>
+
+</html>

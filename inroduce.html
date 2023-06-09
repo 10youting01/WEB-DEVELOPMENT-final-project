@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<link href="style.css" rel="stylesheet">
+
+</head>
+<body id="in_body">
+	<div>
+		<section id="in_section">
+			<img src="./MainPageImg/in_bbg.png" id="in_bbg" class="section_img">
+			<img src="./MainPageImg/in_bg.png" id="in_bg" class="section_img">
+			<img src="./MainPageImg/in_mario.png" id="in_mario" class="section_img">
+			<img src="./MainPageImg/in_road.png" id="in_road" class="section_img">
+			<h2 id="in_text">Let's start<br> Party</h2>
+			<div id="in_text2">Scroll down for more games!</div>
+		</section>
+
+		<table id="buttons_table">
+			<tr>
+			<td>
+				<div class="wrapper">
+					<a href="#" id="car" onclick="document.location=this.id+'.html';return false;" >
+						<img class="buttons_img" src="./MainPageImg/in_car.png"/>
+						<div class="overlay">
+							<span class="content">
+								<span class="content_text">
+									<strong>Super<br>Racer</strong><br>
+									<span class="info_text">Super easy car racing game!</span>
+								</span>
+							</span>
+						</div>
+					</a>
+				</div>
+			</td>
+			<td>
+				<div class="wrapper">
+					<a href="#" id="balloon" onclick="document.location=this.id+'.html';return false;" >
+						<img class="buttons_img" src="./MainPageImg/in_balloon.png"/>
+						<div class="overlay">
+							<span class="content">
+								<span class="content_text">
+									<strong>Pop the<br>Balloon</strong><br>
+									<span class="info_text">Get your highest grades in 30 seconds!</span>
+								</span>
+							</span>
+						</div>
+					</a>
+				</div>
+			</td>
+			<td>
+				<div class="wrapper">
+					<a href="#" id="snake" onclick="document.location=this.id+'.html';return false;" >
+						<img class="buttons_img" src="./MainPageImg/in_snake.jpg"/>
+						<div class="overlay">
+							<span class="content">
+								<span class="content_text">
+									<strong>Snake</strong><br>
+									<span class="info_text">Eat all the apples!</span>
+								</span>
+							</span>
+						</div>
+					</a>
+				</div>
+			</td>
+			<td>
+				<div class="wrapper">
+					<a href="#" id="NS-SHAFT" onclick="document.location=this.id+'.html';return false;" >
+						<img class="buttons_img" src="./MainPageImg/in_ns.png"/>
+						<div class="overlay">
+							<span class="content">
+								<span class="content_text">
+									<strong>NS-<br>SHAFT</strong><br>
+									<span class="info_text">Jump Jump Jump!</span>
+								</span>
+							</span>
+						</div>
+					</a>
+				</div>
+			</td>
+		</table>
+	</div>
+
+	<script type="text/javascript">
+		let in_bbg = document.getElementById("in_bbg");
+		let in_mario = document.getElementById("in_mario");
+		let in_bg = document.getElementById("in_bg");
+		let in_road = document.getElementById("in_road");
+		let in_text = document.getElementById("in_text");
+		let in_text2 = document.getElementById("in_text2");
+
+		window.addEventListener('scroll',function () {
+			var value = window.scrollY;
+
+			in_bbg.style.top = value * 0.5 + 'px';
+			in_mario.style.left = -value * 0.25 + 'px';
+			in_mario.style.top = -value * 0.5 + 'px';
+			in_bg.style.top = -value * 0.15 + 'px';
+			in_road.style.top = value * 0.15 + 'px';
+			in_text.style.top = value * 1.5 + 'px';
+			in_text2.style.top = value * 1.5 + 'px';
+		})
+	</script>
+</body>
+</html>

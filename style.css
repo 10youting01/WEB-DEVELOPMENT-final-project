@@ -1,0 +1,852 @@
+@import url('http://fonts.cdnfonts.com/css/super-mario-256');
+@import url('http://fonts.cdnfonts.com/css/super-mario-256');
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+#car_body {
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    /*background-image: url('./traffic_jam.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;*/
+    font-family: sans-serif;
+    backdrop-filter: blur(20px) brightness(120%)
+}
+
+/*opacity(0.5)*/
+#car_empty {
+    position: center;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+#car_container {
+    position: relative;
+    height: 90vh;
+    width: 25%;
+    margin: 0 auto;
+    background-color: #6a6c73;
+    overflow: hidden;
+    /*border-radius: 15px;
+    border-style: groove;*/
+    border: solid 5px #484848;
+    border-radius: 2px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.car_line {
+    position: absolute;
+    height: 150px;
+    width: 4%;
+    margin-left: 48%;
+    background-color: yellow;
+}
+
+#car_line_1 {
+    top: -150px;
+}
+
+#car_line_2 {
+    top: 150px;
+}
+
+#car_line_3 {
+    top: 450px;
+}
+
+.car_car {
+    position: absolute;
+    width: 50px;
+}
+
+#car_car {
+    bottom: 8%;
+    left: 60%;
+    content: url('./MainPageImg/car_c.png');
+}
+
+#car_car_1 {
+    top: -100px;
+    left: 60%;
+}
+
+#car_car_2 {
+    top: -200px;
+    left: 40%;
+}
+
+#car_car_3 {
+    top: -350px;
+    left: 80%;
+}
+
+#car_car_4 {
+    top: -450px;
+    left: 20%;
+}
+
+#car_car_5 {
+    top: 0px;
+    left: 5%;
+}
+
+#car_restart_div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(252, 119, 127, .7);
+    text-align: center;
+    display: none;
+}
+
+#car_restart {
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    margin-top: 50%;
+    /*margin-right: 10%;*/
+}
+
+#car_ending_car {
+    position: absolute;
+    margin: 0 auto;
+    right: 85px;
+    /*padding-right: 10%;*/
+}
+
+#car_restart_word {
+    /*position: absolute;*/
+    /*margin-top: 600px;*/
+    /*border-style: 1px;*/
+    font-size: 20px;
+    width: 100%;
+}
+
+#car_restart_word .car_text-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+#car_restart_word .car_letter {
+    display: inline-block;
+    font-family: 'Super Mario 256', sans-serif;
+    color: #e4000f;
+    -webkit-text-stroke: 2px black;
+}
+
+.car_small_text {
+    font-size: 15px;
+}
+
+#car_score_div {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 20%;
+    font-size: 30px;
+    background-color: white;
+    color: #454545;
+    padding: 10px;
+    /*box-shadow: 4px 4px 0px 1px #808080;*/
+}
+
+#car_ranker {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 6%;
+    font-size: 30px;
+    background-color: white;
+    color: #454545;
+    padding: 10px;
+}
+
+#car_help {
+    position: absolute;
+    text-align: left;
+    padding: 0px;
+    left: 65%;
+    top: 40%;
+    font-size: 20px;
+    font-family: 'BioRhyme', serif;
+    width: initial;
+    height: 40px;
+    line-height: 40px;
+}
+
+#car_highlight {
+    display: inline-block;
+    position: absolute;
+    z-index: -1;
+    background-color: #F2BB05;
+    height: 40px;
+    width: 0%;
+    transition: width 0.5s;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#car_help:hover #car_highlight {
+    /* hardcoded */
+    width: 400px;
+}
+
+
+/*氣球css*/
+
+#ball_container {
+    position: relative;
+    height: 90vh;
+    width: 50%;
+    margin-top: 2%;
+    margin-left: 25%;
+    overflow: hidden;
+    border-radius: 15px;
+    border-style: groove;
+    background-image: url("./MainPageImg/sky.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: url("./MainPageImg/target.ico"), auto;
+}
+
+#ball_score_div {
+    position: absolute;
+    margin-top: 10%;
+    margin-left: 3%;
+    font-size: 30px;
+    background-color: white;
+    color: #454545;
+    padding: 10px;
+}
+
+.ball {
+    position: absolute;
+    width: 125px;
+    /*border-style: solid;*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+
+.ball_div {
+    position: absolute;
+    width: 125px;
+    /* border-style: solid;
+    border-color: red;*/
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#ball_div1 {
+    top: 1150px;
+    left: 24px;
+    /*content: url('./ball_1.png');*/
+}
+
+#ball_div2 {
+    top: 1131px;
+    left: 10px;
+}
+
+#ball_div3 {
+    top: 1975px;
+    left: 257px;
+}
+
+#ball_div4 {
+    top: 1299px;
+    left: 232px;
+}
+
+#ball_div5 {
+    top: 1320px;
+    left: 83px;
+}
+
+#ball_div6 {
+    top: 1609px;
+    left: 42px;
+}
+
+#ball_div7 {
+    top: 1831px;
+    left: 188px;
+}
+
+#ball_div8 {
+    top: 2055px;
+    left: 11px;
+}
+
+#ball_div9 {
+    top: 741px;
+    left: 29px;
+}
+
+#ball_div10 {
+    top: 2134px;
+    left: 125px;
+}
+
+#ball_div11 {
+    top: 1880px;
+    left: 74px;
+}
+
+#ball_div12 {
+    top: 2144px;
+    left: 222px;
+}
+
+#ball_div13 {
+    top: 1770px;
+    left: 219px;
+}
+
+#ball_div14 {
+    top: 1009px;
+    left: 293px;
+}
+
+#ball_div15 {
+    top: 1990px;
+    left: 61px;
+}
+
+#ball_text {
+    position: absolute;
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 50px;
+    /*border-style: solid;*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+}
+
+#ball_restart_div {
+    position: absolute;
+    height: 120%;
+    width: 120%;
+    margin: -10%;
+    background-image: url("./MainPageImg/restart-bg.jpg");
+    background-position: center;
+    background-size: 1000px;
+    /*backdrop-filter: blur(20px);*/
+    border-radius: 200px;
+    text-align: center;
+    display: none;
+}
+
+.ball_animate.ball_pop {
+    animation-name: animate-pop;
+    animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+    animation-duration: 1s;
+}
+
+@keyframes animate-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.5, 0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
+}
+
+#ball_restart_img {
+    margin-top: -15%;
+    /*margin-top: 30%;*/
+    /*margin: 0 auto;*/
+}
+
+#ball_restart_button {
+    border: none;
+    background: transparent;
+    margin-top: 25%;
+    /*margin: 0 auto;*/
+    /*border-style: solid;*/
+}
+
+.ball_restart_word {
+    /*border-style: solid;*/
+    position: relative;
+    font-weight: 900;
+    font-size: 4em;
+}
+
+.ball_restart_word .ball_text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+}
+
+.ball_restart_word .ball_letter {
+    display: inline-block;
+    line-height: 1em;
+    transform-origin: 0 0;
+    font-family: 'Super Mario 256', sans-serif;
+    color: #e4000f;
+    -webkit-text-stroke: 4px black;
+}
+
+#ball_press {
+    margin-top: -1%;
+    background-color: white;
+    font-family: Lucida Console, Lucida Sans Typewriter, monaco, Bitstream Vera Sans Mono, monospace;
+    font-size: 21px;
+    font-style: bolder;
+    padding: 8px;
+    border-style: solid;
+    border-color: #0065b3;
+    border-width: 5px;
+    background-color: lightblue;
+}
+
+#ball_timer {
+    position: absolute;
+    left: 80%;
+    top: 30%;
+    font-size: 50px;
+}
+
+/*進入頁面css*/
+#in_body {
+    /*border-style: solid;*/
+    margin: 0;
+    padding: 0;
+    background: #5f3714;
+    min-height: 1200px;
+    z-index: 3;
+}
+
+#in_section {
+    /*border-style: solid;*/
+    position: relative;
+    width: 100%;
+    height: 138vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#in_section:before {
+    /*border-style: solid;*/
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #5f3714, transparent);
+    z-index: 3;
+}
+
+/*#in_section:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #5f3714;
+  z-index: 10000;
+  mix-blend-mode: color;
+}
+*/
+
+#in_text {
+    position: relative;
+    color: #ffffff;
+    font-size: 6.5em;
+    z-index: 1;
+    margin-top: -30%;
+    margin-left: -50%;
+    font-family: 'Super Mario 256', sans-serif;
+    /*-webkit-text-stroke: 4px red;*/
+    text-shadow: 3px 3px 0 #f7b3b3, 6px 6px 0 #f28080,
+        9px 9px #ed4d4d, 12px 12px 0 #e81919;
+    animation: shadows 1.5s ease-in infinite;
+}
+
+#in_text2 {
+    position: relative;
+    font-size: 2em;
+    margin-top: -17%;
+    margin-left: -48%;
+    font-family: 'Super Mario 256', sans-serif;
+    font-style: bolder;
+    font-variant: normal;
+    color: lightblue;
+    /*-webkit-text-stroke: 1px white;*/
+    text-shadow: 3px 3px 0 white;
+    /*font-weight: 700;*/
+}
+
+#in_section .section_img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+#in_road {
+    /*border-style: solid;*/
+    z-index: 2;
+}
+
+#in_mario {
+    /*border-style: solid;*/
+    z-index: 5;
+}
+
+@keyframes shadows {
+
+    /*  0% {
+    text-shadow: none;
+  }*/
+    0%,
+    10% {
+        text-shadow: 3px 3px 0 #f7b3b3;
+    }
+
+    20% {
+        text-shadow: 3px 3px 0 #f7b3b3,
+            6px 6px 0 #f28080;
+    }
+
+    30% {
+        text-shadow: 3px 3px 0 #f7b3b3,
+            6px 6px 0 #f28080, 9px 9px #ed4d4d;
+    }
+
+    40% {
+        text-shadow: 3px 3px 0 #f7b3b3,
+            6px 6px 0 #f28080, 9px 9px #ed4d4d,
+            12px 12px 0 #e81919;
+    }
+
+    50% {
+        text-shadow: 3px 3px 0 #f7b3b3,
+            6px 6px 0 #f28080, 9px 9px #ed4d4d,
+            12px 12px 0 #e81919;
+    }
+
+    60% {
+        text-shadow: 3px 3px 0 #f7b3b3,
+            6px 6px 0 #f28080, 9px 9px #ed4d4d,
+            12px 12px 0 #e81919;
+    }
+
+    70% {
+        text-shadow: 3px 3px 0 #f7b3b3,
+            6px 6px 0 #f28080, 9px 9px #ed4d4d;
+    }
+
+    80% {
+        text-shadow: 3px 3px 0 #f7b3b3,
+            6px 6px 0 #f28080;
+    }
+
+    90%,
+    100% {
+        text-shadow: 3px 3px 0 #f7b3b3;
+    }
+}
+
+#buttons_table {
+    width: 95%;
+    position: relative;
+    margin-top: -23%;
+    margin-left: 4%;
+    /*margin-right: 5%;*/
+    z-index: 4;
+}
+
+.buttons_img {
+    border-style: none;
+    border-radius: 30px;
+    height: 500px;
+    /*transition: 0.5s ease;*/
+}
+
+.wrapper {
+    overflow: hidden;
+    border-radius: 30px;
+    height: 100%;
+    width: 300px;
+}
+
+.wrapper:hover img {
+    /*overflow: hidden;*/
+    opacity: 1;
+    transform: scale(1.25);
+    transition-duration: 1s;
+}
+
+.wrapper:hover .overlay {
+    transition-duration: 1s;
+    opacity: 0;
+}
+
+.overlay {
+    opacity: 1;
+    /*border-style: solid;*/
+    height: 100%;
+    width: 300px;
+}
+
+.content:before {
+    border-radius: 30px;
+    content: "";
+    background-image: url(./MainPageImg/wrapper.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+
+}
+
+.content {
+    position: absolute;
+    height: 99%;
+    width: 300px;
+    padding: 0px;
+    transform: translate(0%, -100%);
+    color: white;
+    overflow: hidden;
+}
+
+.content_text {
+    font-size: 30px;
+    position: absolute;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 98%;
+}
+
+.info_text {
+    font-size: 20px;
+}
+
+/*NS-SHAFT*/
+.NS-SHAFT-body {
+    margin: 0 auto;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#SHAFTtitle {
+    text-align: center;
+    margin: 0 auto;
+    font-family: monospace;
+    margin: top 5px;
+    font-size:25px;
+    margin-left: 560px;
+}
+
+#NS-SHAFT-content {
+    text-align: center;
+}
+
+#nsHow {
+    width: 300px;
+    margin-left: 530px;
+    margin-top: 30px;
+}
+
+.nswordType {
+    font-size: 30px;
+    font-family: 'monospace';
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 430px;
+}
+
+kbd {
+    display: inline-block;
+    padding: 3px 5px;
+    color: #444d56;
+    background-color: #fafbfc;
+    border: solid 1px #c6cbd1;
+    border-bottom-color: #959da5;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #959da5;
+}
+
+dl {
+    margin: 0 auto;
+    width: 95%;
+}
+
+dt {
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+dd {
+    display: list-item;
+    font-size: 12pt;
+    margin-left: 1.5em;
+}
+
+
+/*Snake*/
+.SnakeBody {
+    /*margin: 0;*/
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.snakeLevelField {
+    margin-top: 30px;
+    float: right;
+    background-color: aliceblue;
+}
+
+legend {
+    background-color: white;
+}
+
+#game {
+    box-shadow: black 10px 10px 50px;
+}
+
+#howToPlay {
+    margin-top: 30px;
+    width: 250px;
+}
+
+.wordType {
+    font-size: 20px;
+    font-family: 'Algerian';
+    text-align: center;
+    margin-top: 10px;
+}
+
+#formHead {
+    text-align: center;
+    font-size: 15px;
+    font-family: 'Algerian';
+    margin-top: 15px;
+}
+
+#snakeFormInput {
+    font-size: 10px;
+    font-family: 'Algerian';
+}
+
+#chooseLevel {
+    font-size: 40px;
+    font-family: 'Algerian';
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*Main Page*/
+.MainPageBackground {
+    background-image: url('./MainPageImg/MainBg.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    ;
+}
+
+.index_container {
+    margin: 0 auto;
+    text-align: center;
+    font-family: monospace;
+    display: flex;
+    overflow-x: scroll;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    flex-shrink: 0;
+    /*margin-top: 10px;*/
+}
+
+.index_title {
+    width: 600px;
+    height: 125px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.index_title_idea {
+    height: 125px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#marioGo {
+    font-size: 80px;
+    font-weight: bold;
+    color: #E4210E;
+    -webkit-text-stroke: 4px white;
+    margin-top: 50px;
+    font-family: 'Super Mario 256';
+}
+
+.index_paragraph img {
+    width: 80px;
+}
+
+#indexLegend {
+    background-color: transparent;
+    color: black;
+    -webkit-text-stroke: 1px white;
+}
+
+#indexForm {
+    font-family: 'Super Mario 256';
+    font-size: 28px;
+    width: 1300px;
+    margin-left: 30px;
+}
+
+#quiz1 {
+    background-color: #872C1E;
+    color: #FFF2E5;
+}
+
+#legendName {
+    background-color: transparent;
+}
+
+#done {
+    width: 130px;
+}
+
+#M {
+    width: 150px;
+    height: 150px;
+    margin-top: 50px;
+}
+
+#carnivorous {
+    margin-top: 40px;
+    width: 80px;
+}
